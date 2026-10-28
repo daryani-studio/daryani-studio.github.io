@@ -147,8 +147,8 @@ section { padding-block: 5rem; }
 .panel .sub > h3, .prices .sub > h3 { color: var(--navy); }
 
 /* about the specialist */
-.about .wrap { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 4.5rem; align-items: center; }
-.portrait { position: relative; margin: 0; width: min(100%, 25rem); max-width: 100%; justify-self: center; isolation: isolate; }
+.about .wrap { display: grid; grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); gap: 4rem; align-items: center; }
+.portrait { position: relative; margin: 0; width: min(100%, 20rem); max-width: 100%; justify-self: center; isolation: isolate; }
 .portrait::after { content: ""; position: absolute; inset: 1.1rem -1.1rem -1.1rem 1.1rem; border: 1px solid var(--gold); z-index: -1; }
 .portrait img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%; max-width: 100%; }
 .portrait figcaption {
@@ -294,6 +294,49 @@ blockquote.pull footer { font-size: .78rem; letter-spacing: .16em; text-transfor
 footer.foot { background: var(--navy-deep); color: var(--on-navy-muted); font-size: .8rem; }
 footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: .6rem 2rem; justify-content: space-between; }
 
+/* short BMS */
+.theses { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.7rem 2.2rem; }
+.theses li { position: relative; padding-left: 1.5rem; display: grid; gap: .3rem; align-content: start; font-size: .95rem; color: #d3d9e5; }
+.theses li::before { content: ""; position: absolute; left: .1rem; top: .5rem; width: .5rem; height: .5rem; transform: rotate(45deg); border: 1px solid var(--gold-hi); }
+.theses b { font: 600 1.3rem/1.2 var(--serif); color: var(--gold-hi); }
+.contra { margin-top: 2rem; font-size: .88rem; color: var(--on-navy-muted); max-width: 52rem; }
+.contra b { color: var(--gold-hi); font-weight: 500; }
+.bms-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.2rem; margin-top: 2.2rem; padding-top: 1.8rem; border-top: 1px solid rgba(220,191,131,.45); }
+.bms-cta .from { display: grid; gap: .2rem; margin-right: auto; }
+.from span { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--on-navy-muted); }
+.from b { font: 400 2.3rem/1 var(--display); color: var(--gold-hi); font-variant-numeric: tabular-nums; }
+.from small { font-size: .85rem; color: var(--on-navy-muted); }
+.chev { flex: none; display: block; width: 1.7rem; height: 1.7rem; border: 1px solid currentColor; border-radius: 50%; position: relative; transition: transform .25s, background .25s; }
+.chev::before, .chev::after { content: ""; position: absolute; left: 50%; top: 50%; width: .7rem; height: 1px; background: currentColor; transform: translate(-50%, -50%); }
+.chev::after { transform: translate(-50%, -50%) rotate(90deg); }
+details[open] > summary .chev { transform: rotate(45deg); }
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+.more { margin-top: 2.6rem; }
+.more > summary { display: inline-flex; align-items: center; gap: .8rem; padding: .85rem 1.1rem .85rem 1.4rem; border: 1px solid rgba(220,191,131,.6); color: var(--gold-hi); font: 500 .9rem/1 var(--body); letter-spacing: .08em; }
+.more > summary:hover { background: rgba(220,191,131,.08); }
+.more .more-close, .more[open] .more-open { display: none; }
+.more[open] .more-close { display: inline; }
+.more > .intro { margin-top: 3rem; }
+.more-card { margin-top: 4rem; padding: 2.6rem clamp(1rem, 4vw, 2.6rem); color: var(--text); border: 1px solid var(--line); }
+.more-card .kicker { color: var(--gold-ink); }
+.more-card .sec-head h2 { color: var(--navy); }
+.more-card .sec-head p { color: var(--muted); }
+.more .js-collapse { margin-top: 2rem; }
+
+/* price categories */
+.cats { border-top: 1px solid var(--line); }
+.cat { border-bottom: 1px solid var(--line); }
+.cat > summary { display: grid; grid-template-columns: minmax(0,1fr) auto auto; gap: .3rem 1.2rem; align-items: center; padding: 1.15rem .15rem; color: var(--gold); }
+.cat-n { font: 400 clamp(1.3rem, 3vw, 1.7rem)/1.15 var(--display); color: var(--navy); transition: color .2s; }
+.cat > summary:hover .cat-n { color: var(--gold-ink); }
+.cat-m { font-size: .86rem; color: var(--muted); white-space: nowrap; }
+.cat-m b { font: 400 1.15rem/1 var(--display); color: var(--gold-ink); margin-left: .25rem; }
+.cat[open] > summary .chev { background: var(--navy); border-color: var(--navy); color: var(--ivory); }
+.cat-body { padding: 0 0 1.6rem; }
+.prices-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 2.4rem; }
+.prices-cta .note { margin: 0 0 0 .4rem; flex: 1 1 14rem; }
+
 /* phone booking bar */
 .mbar { display: none; }
 
@@ -306,7 +349,7 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
   /* phone/tablet: name on top, small photo with the facts beside it, quote below */
   .about .wrap {
     grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
-    grid-template-areas: "k k" "h h" "p c" "q q";
+    grid-template-areas: "k k" "h h" "p c";
     gap: 1.2rem 1.3rem; align-items: start;
   }
   .about-text { display: contents; }
@@ -336,6 +379,7 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
   .mech { grid-template-columns: minmax(0,1fr); }
   .mech article + article { border-left: 0; border-top: 1px solid var(--line-navy); }
   .dyk { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .theses { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.4rem 1.6rem; }
   section { padding-block: 3.6rem; }
 }
 @media (max-width: 720px) {
@@ -359,6 +403,13 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
   .row .tm { grid-row: 2; grid-column: 1; text-align: left; min-width: 0; }
   .row .pr { grid-row: 1 / span 2; grid-column: 2; align-self: center; }
   .hero .cta .btn { flex: 1 1 100%; }
+  .theses { grid-template-columns: minmax(0,1fr); gap: 1.1rem; }
+  .bms-cta .btn, .prices-cta .btn { flex: 1 1 100%; }
+  .bms-cta .from { margin-right: 0; }
+  .cat > summary { grid-template-columns: minmax(0,1fr) auto; }
+  .cat-m { grid-row: 2; grid-column: 1; }
+  .cat > summary .chev { grid-row: 1 / span 2; grid-column: 2; }
+  .more > summary { width: 100%; justify-content: space-between; }
   .dirs a { font-size: .68rem; letter-spacing: .08em; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -384,9 +435,9 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
       <span><b>DARYANI</b><small>by Daryana Yanina</small></span>
     </a>
     <nav class="top" aria-label="Разделы">
-      <a class="l" href="#o-specialiste">О специалисте</a>
-      <a class="l" href="#bms">БМС Назарова</a>
       <a class="l" href="#uslugi">Услуги и цены</a>
+      <a class="l" href="#bms">БМС Назарова</a>
+      <a class="l" href="#o-specialiste">О специалисте</a>
       <a class="l" href="#kontakty">Контакты</a>
       <a class="btn js-book" href="https://n2649192.yclients.ru/" target="_blank" rel="noopener">Записаться</a>
     </nav>
@@ -400,7 +451,7 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
         <p class="kicker">Кабинет эстетической косметологии</p>
         <h1>Уход, после которого кожа <em>выглядит отдохнувшей</em></h1>
         <div class="rule" aria-hidden="true"></div>
-        <p class="lead" style="margin-top:1.4rem">Daryani — кабинет косметолога Дарьяны Яниной. Массаж лица, эстетические уходы, шугаринг, брови и ресницы. Главное направление — биомеханическая стимуляция мышц лица по методу профессора Назарова.</p>
+        <p class="lead" style="margin-top:1.4rem">Кабинет косметолога Дарьяны Яниной. БМС Назарова, массаж лица, уходы, шугаринг, брови и ресницы.</p>
         <div class="cta">
           <a class="btn js-book" href="https://n2649192.yclients.ru/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-cal"/></svg>Записаться онлайн</a>
           <a class="btn ghost js-wa" href="https://wa.me/79099677196" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Написать в WhatsApp</a>
@@ -430,25 +481,26 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
     </div>
   </nav>
 
-  <!-- ============ ABOUT ============ -->
-  <section id="o-specialiste" class="about" aria-labelledby="about-h">
+  <!-- ============ PRICES ============ -->
+  <section id="uslugi" class="prices" aria-labelledby="us-h">
     <div class="wrap">
-      <figure class="portrait">
-        <img src="img/daryana.jpg" alt="Косметолог Дарьяна Янина в своём кабинете" width="720" height="954">
-        <figcaption><b>Дарьяна Янина</b><span>Косметолог</span></figcaption>
-      </figure>
-      <div class="about-text">
-        <p class="kicker">О специалисте</p>
-        <h2 id="about-h">Дарьяна Янина<small>косметолог, основательница кабинета Daryani</small></h2>
-        <blockquote>
-          <p>«Я работаю в эстетической косметологии больше пяти лет. Перед первой процедурой мы обязательно разговариваем: о коже, самочувствии и о том, какой результат вы хотите увидеть. Программу я подбираю под вас, а не по шаблону. Мне важно, чтобы после визита лицо выглядело отдохнувшим, а настроение было хорошим».</p>
-          <footer>Дарьяна</footer>
-        </blockquote>
-        <ul class="creds">
-          <li><b>5+</b><strong>лет практики</strong><span class="d">в эстетической косметологии: уходы, массаж лица, БМС, шугаринг, брови и ресницы</span></li>
-          <li><b><i class="seal cred-seal" aria-hidden="true"></i></b><strong>Профессиональное обучение</strong><span class="d">курсы по косметологии, подтверждённые сертификатами</span></li>
-          <li><b>1:1</b><strong>Индивидуальный подход</strong><span class="d">консультация перед первой процедурой и программа под вашу кожу и задачу</span></li>
-        </ul>
+      <div class="sec-head">
+        <p class="kicker">Услуги и цены</p>
+        <h2 id="us-h">Выберите услугу</h2>
+        <p>Нажмите на категорию, чтобы открыть цены. Время указано ориентировочно.</p>
+      </div>
+      <div class="cats">
+        <details class="cat" id="g-bms"><summary><span class="cat-n">Программы БМС Назарова</span><span class="cat-m" data-key="bms"></span><i class="chev" aria-hidden="true"></i></summary><div class="cat-body" id="list-bms"></div></details>
+        <details class="cat" id="g-massage"><summary><span class="cat-n">Массаж лица и уходы</span><span class="cat-m" data-key="massage"></span><i class="chev" aria-hidden="true"></i></summary><div class="cat-body" id="list-massage"></div></details>
+        <details class="cat" id="g-sugar"><summary><span class="cat-n">Шугаринг — лицо и тело</span><span class="cat-m" data-key="sugar"></span><i class="chev" aria-hidden="true"></i></summary><div class="cat-body split" id="list-sugar"></div></details>
+        <details class="cat" id="g-complex"><summary><span class="cat-n">Комплексы шугаринга</span><span class="cat-m" data-key="complex"></span><i class="chev" aria-hidden="true"></i></summary><div class="cat-body" id="list-complex"></div></details>
+        <details class="cat" id="g-brows"><summary><span class="cat-n">Брови и ресницы</span><span class="cat-m" data-key="brows"></span><i class="chev" aria-hidden="true"></i></summary><div class="cat-body" id="list-brows"></div></details>
+        <details class="cat" id="g-extra"><summary><span class="cat-n">Дополнительные услуги</span><span class="cat-m" data-key="extra"></span><i class="chev" aria-hidden="true"></i></summary><div class="cat-body" id="list-extra"></div></details>
+      </div>
+      <div class="prices-cta">
+        <a class="btn js-book" href="https://n2649192.yclients.ru/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-cal"/></svg>Записаться онлайн</a>
+        <a class="btn ghost js-wa" href="https://wa.me/79099677196" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Написать в WhatsApp</a>
+        <p class="note">Свободное время и актуальные цены видны при онлайн-записи.</p>
       </div>
     </div>
   </section>
@@ -458,9 +510,26 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">Флагманское направление</p>
-        <h2 id="bms-h">БМС Назарова: тренировка мышц лица, которую делает аппарат</h2>
+        <h2 id="bms-h">БМС Назарова</h2>
+        <p>Аппаратная тренировка мышц лица по методу профессора В. Т. Назарова. Мягкая ритмичная вибрация идёт вдоль мышечных волокон и работает изнутри.</p>
+      </div>
+      <ul class="theses">
+        <li><b>Тонус и чёткий овал</b>Мышцы лица получают нагрузку, как на тренировке. Брови выше, меньше провисания под челюстью.</li>
+        <li><b>Свежий цвет лица</b>Усиливается кровообращение. По наблюдениям Назарова, кожа светлеет уже после первого сеанса.</li>
+        <li><b>Работает изнутри</b>Кремы и маски действуют снаружи, БМС — через мышцы. Вместе эффект сильнее.</li>
+        <li><b>Приятные ощущения</b>Ритмичная вибрация, тепло и лёгкость в мышцах. Классический массаж лица уже входит в процедуру.</li>
+        <li><b>Курс</b>5–6 процедур, дальше поддержка раз в 1–2 недели. Точный план Дарьяна подберёт на консультации.</li>
+        <li><b>Метод из спорта</b>Создан в Минске для спортсменов и артистов балета, описан в книге Назарова 1986 года.</li>
+      </ul>
+      <p class="contra"><b>Противопоказания:</b> онкологические заболевания, тромбозы, острые инфекции и воспаления, беременность.</p>
+      <div class="bms-cta">
+        <p class="from"><span>Программы БМС</span><b>от 3 900 ₽</b><small>от 30 минут до 1 часа</small></p>
+        <a class="btn js-book" href="https://n2649192.yclients.ru/" target="_blank" rel="noopener">Записаться на БМС</a>
+        <a class="btn ghost" href="#g-bms">Все программы и цены</a>
       </div>
 
+      <details class="more" id="bms-more">
+        <summary><span class="more-open">Подробнее о методе</span><span class="more-close">Свернуть подробности</span><i class="chev" aria-hidden="true"></i></summary>
       <div class="intro">
         <div>
           <p>Биомеханическая стимуляция (БМС) — метод белорусского учёного Владимира Титовича Назарова, профессора и заведующего кафедрой биомеханики Белорусского института физкультуры в Минске. Сам автор определял её так: частое ритмичное механическое воздействие на мышцы, направленное вдоль их волокон, чтобы управлять работой организма, прежде всего кровообращением.</p>
@@ -516,11 +585,7 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
           <div class="wave-scroll"><svg id="wave" viewBox="0 0 640 222" role="img" aria-label="Сравнение колебаний 20 и 30 герц за 0,25 секунды: за это время 20 Гц дают 5 колебаний, 30 Гц — 7,5"></svg></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="panel" aria-labelledby="face-h">
-    <div class="wrap">
+        <div class="panel more-card">
       <div class="sec-head">
         <p class="kicker">БМС для лица</p>
         <h2 id="face-h">Что меняется с возрастом и чем помогает стимуляция</h2>
@@ -586,60 +651,29 @@ footer.foot .wrap { padding-block: 1.8rem; display: flex; flex-wrap: wrap; gap: 
           <p>Процедуру не проводят при онкологических заболеваниях, тромбозах, острых инфекциях и воспалениях, во время беременности. Перед первой процедурой Дарьяна обсудит с вами самочувствие и подберёт программу. БМС — косметическая процедура, а не лечение, и результат у каждого свой.</p>
         </div>
       </div>
+        </div>
+        <p class="src">Источники: <a href="https://reception.endocrinolog.ru/files/kniga-o-bms.pdf" target="_blank" rel="noopener">В. Т. Назаров, «Биомеханическая стимуляция: явь и надежды», Минск, 1986</a>; <a href="https://altmeyers.org/en/dermatology/biomechanical-stimulation-128786" target="_blank" rel="noopener">энциклопедия дерматологии Альтмайера</a>; патенты <a href="https://patents.google.com/patent/US8574179" target="_blank" rel="noopener">US 8574179</a> и <a href="https://patents.google.com/patent/EP1537844B1/de" target="_blank" rel="noopener">EP 1537844</a>.</p>
+        <p><button type="button" class="linkbtn js-collapse">Свернуть подробности ↑</button></p>
+      </details>
     </div>
   </section>
 
-  <section id="bms-programs" class="navy" aria-labelledby="bp-h">
+  <!-- ============ ABOUT ============ -->
+  <section id="o-specialiste" class="about" aria-labelledby="about-h">
     <div class="wrap">
-      <div class="menu-title"><h3 id="bp-h">Программы БМС</h3><span>Флагманская линейка</span></div>
-      <div id="list-bms"></div>
-      <div class="programs-cta">
-        <p>Не знаете, какую программу выбрать? Начните с БМС лица на 45 минут или напишите Дарьяне, она подскажет.</p>
-        <a class="btn js-book" href="https://n2649192.yclients.ru/" target="_blank" rel="noopener">Записаться на БМС</a>
-        <a class="btn ghost js-wa" href="https://wa.me/79099677196" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+      <figure class="portrait">
+        <img src="img/daryana.jpg" alt="Косметолог Дарьяна Янина в своём кабинете" width="720" height="954">
+        <figcaption><b>Дарьяна Янина</b><span>Косметолог</span></figcaption>
+      </figure>
+      <div class="about-text">
+        <p class="kicker">О специалисте</p>
+        <h2 id="about-h">Дарьяна Янина<small>косметолог, основательница кабинета Daryani</small></h2>
+        <ul class="creds">
+          <li><b>5+</b><strong>лет практики</strong><span class="d">в эстетической косметологии: уходы, массаж лица, БМС, шугаринг, брови и ресницы</span></li>
+          <li><b><i class="seal cred-seal" aria-hidden="true"></i></b><strong>Профессиональное обучение</strong><span class="d">курсы по косметологии, подтверждённые сертификатами</span></li>
+          <li><b>1:1</b><strong>Индивидуальный подход</strong><span class="d">консультация перед первой процедурой и программа под вашу кожу и задачу</span></li>
+        </ul>
       </div>
-      <p class="src">Источники: <a href="https://reception.endocrinolog.ru/files/kniga-o-bms.pdf" target="_blank" rel="noopener">В. Т. Назаров, «Биомеханическая стимуляция: явь и надежды», Минск, 1986</a>; <a href="https://altmeyers.org/en/dermatology/biomechanical-stimulation-128786" target="_blank" rel="noopener">энциклопедия дерматологии Альтмайера</a>; патенты <a href="https://patents.google.com/patent/US8574179" target="_blank" rel="noopener">US 8574179</a> и <a href="https://patents.google.com/patent/EP1537844B1/de" target="_blank" rel="noopener">EP 1537844</a>.</p>
-    </div>
-  </section>
-
-  <!-- ============ PRICES ============ -->
-  <section id="uslugi" class="prices" aria-labelledby="us-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="kicker">Услуги и цены</p>
-        <h2 id="us-h">Прайс-лист</h2>
-        <p>Время указано ориентировочно, цены в рублях.</p>
-      </div>
-      <nav class="chips" aria-label="Категории услуг">
-        <a href="#bms-programs">Программы БМС</a>
-        <a href="#g-massage">Массаж и уходы</a>
-        <a href="#g-sugar">Шугаринг</a>
-        <a href="#g-complex">Комплексы шугаринга</a>
-        <a href="#g-brows">Брови и ресницы</a>
-        <a href="#g-extra">Дополнительные услуги</a>
-      </nav>
-
-      <div class="price-group" id="g-massage">
-        <div class="menu-title"><h3>Массаж лица и эстетические уходы</h3></div>
-        <div id="list-massage"></div>
-      </div>
-      <div class="price-group" id="g-sugar">
-        <div class="menu-title"><h3>Шугаринг — лицо и тело</h3></div>
-        <div id="list-sugar" class="split"></div>
-      </div>
-      <div class="price-group" id="g-complex">
-        <div class="menu-title"><h3>Комплексы шугаринга</h3></div>
-        <div id="list-complex"></div>
-      </div>
-      <div class="price-group" id="g-brows">
-        <div class="menu-title"><h3>Брови и ресницы</h3></div>
-        <div id="list-brows"></div>
-      </div>
-      <div class="price-group" id="g-extra">
-        <div class="menu-title"><h3>Дополнительные эстетические услуги</h3></div>
-        <div id="list-extra"></div>
-      </div>
-      <p class="note">Свободное время и актуальные цены видны при онлайн-записи.</p>
     </div>
   </section>
 
@@ -777,6 +811,27 @@ Object.keys(DATA).forEach(function (key) {
     cols[cols.length > 1 && i >= Math.ceil(rows.length / 2) ? 1 : 0].appendChild(row);
   });
   if (cols.length > 1) cols.forEach(function (c) { box.appendChild(c); });
+});
+
+/* category summaries: count + lowest price */
+function plural(n, one, few, many) { var m10 = n % 10, m100 = n % 100; return m10 === 1 && m100 !== 11 ? one : m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20) ? few : many; }
+document.querySelectorAll(".cat-m").forEach(function (el) {
+  var rows = DATA[el.getAttribute("data-key")] || [];
+  var min = Math.min.apply(null, rows.map(function (r) { return r[2]; }));
+  el.textContent = rows.length + " " + plural(rows.length, "услуга", "услуги", "услуг") + " · от";
+  var b = document.createElement("b"); b.textContent = fmt(min); el.appendChild(b);
+});
+function openTarget(id) { var el = id && document.getElementById(id); if (el && el.tagName === "DETAILS") el.open = true; }
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest('a[href^="#"]');
+  if (a) openTarget(a.getAttribute("href").slice(1));
+});
+if (location.hash) openTarget(location.hash.slice(1));
+document.querySelectorAll(".js-collapse").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    btn.closest("details").open = false;
+    document.getElementById("bms").scrollIntoView({ behavior: "smooth" });
+  });
 });
 
 /* copy phone number */
