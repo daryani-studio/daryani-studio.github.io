@@ -147,8 +147,8 @@ section { padding-block: 5rem; }
 .panel .sub > h3, .prices .sub > h3 { color: var(--navy); }
 
 /* about the specialist */
-.about .wrap { display: grid; grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); gap: 4rem; align-items: center; }
-.portrait { position: relative; margin: 0; width: min(100%, 20rem); max-width: 100%; justify-self: center; isolation: isolate; }
+.about .wrap { display: grid; grid-template-columns: minmax(0,.6fr) minmax(0,1.4fr); gap: 3.2rem; align-items: center; }
+.portrait { position: relative; margin: 0; width: min(100%, 15rem); max-width: 100%; justify-self: end; isolation: isolate; }
 .portrait::after { content: ""; position: absolute; inset: 1.1rem -1.1rem -1.1rem 1.1rem; border: 1px solid var(--gold); z-index: -1; }
 .portrait img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%; max-width: 100%; }
 .portrait figcaption {
@@ -348,7 +348,7 @@ summary::-webkit-details-marker { display: none; }
   .intro, .two-col, .contact, .split, .route-wrap, .about .wrap { grid-template-columns: minmax(0,1fr); gap: 2.2rem; }
   /* phone/tablet: name on top, small photo with the facts beside it, quote below */
   .about .wrap {
-    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+    grid-template-columns: minmax(0, 35fr) minmax(0, 65fr);
     grid-template-areas: "k k" "h h" "p c";
     gap: 1.2rem 1.3rem; align-items: start;
   }
@@ -358,10 +358,10 @@ summary::-webkit-details-marker { display: none; }
   .about-text > blockquote { grid-area: q; margin-top: .8rem; }
   .about .portrait { grid-area: p; align-self: stretch; width: 100%; justify-self: stretch; }
   .about .portrait::after { inset: .5rem -.5rem -.5rem .5rem; }
-  .about .portrait img { height: 100%; aspect-ratio: auto; min-height: 12rem; object-position: 50% 15%; }
-  .about .portrait figcaption { bottom: .8rem; padding: .45rem .7rem .4rem; }
-  .about .portrait figcaption b { font-size: .92rem; }
-  .about .portrait figcaption span { font-size: .52rem; letter-spacing: .16em; }
+  .about .portrait img { height: 100%; aspect-ratio: auto; min-height: 10rem; object-position: 45% 12%; }
+  .about .portrait figcaption { left: 0; right: 0; bottom: 0; padding: .4rem .5rem .35rem; text-align: center; }
+  .about .portrait figcaption b { font-size: .8rem; white-space: nowrap; }
+  .about .portrait figcaption span { font-size: .48rem; letter-spacing: .14em; }
   .creds { grid-area: c; margin: 0; grid-template-columns: minmax(0,1fr); gap: .9rem; }
   .creds li { display: block; padding-top: .65rem; font-size: .82rem; line-height: 1.45; }
   .creds b { display: inline-block; font-size: 1.45rem; margin-right: .3rem; vertical-align: -.08rem; }
